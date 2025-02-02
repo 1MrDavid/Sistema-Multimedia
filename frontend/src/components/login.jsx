@@ -1,31 +1,36 @@
 import React, { useState } from "react";
-import { registerUser } from "../api/authService"; 
+import { loginUser } from "../api/authService";
 import { Link } from "react-router-dom";
-import "./styles.css"; 
+import "./styles.css";
 
-const Register = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const userData = { username, password };
-      const response = await registerUser(userData);
+      const response = await loginUser(userData);
       console.log(response);
-      setMessage("Usuario registrado exitosamente.");
+      setMessage("Usuario logeado exitosamente.");
       setUsername("");
       setPassword("");
     } catch (error) {
-      setMessage(error.detail || "Error al registrar el usuario.");
+      setMessage(error.detail || "Error al iniciar sesión.");
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
     <div className="login-container">
-      <h1 className="login-title">Registro de Usuario</h1>
+      <h1 className="login-title">Iniciar Sesión</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         {/* Campo de nombre de usuario */}
         <div className="input-group">
@@ -41,21 +46,28 @@ const Register = () => {
         </div>
 
         {/* Campo de contraseña */}
-        <div className="input-group">
+        <div className="input-group password-input">
           <label htmlFor="password">Contraseña:</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Ingresa tu contraseña"
             required
           />
+          <button
+            type="button"
+            className="eye-icon"
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? "👁️" : "👁️‍🗨️"}
+          </button>
         </div>
 
-        {/* Botón de registro */}
+        {/* Botón de inicio de sesión */}
         <button type="submit" className="login-button">
-          Registrarse
+          Iniciar Sesión
         </button>
 
         {/* Mensaje de error/éxito */}
@@ -66,12 +78,13 @@ const Register = () => {
         )}
       </form>
 
-      {/* Enlace de inicio de sesión */}
-      <p className="login-link">
-        ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
+      {/* Enlace de registro */}
+      <p className="register-link">
+        ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
       </p>
     </div>
+
   );
 };
 
-export default Register;
+export default Login;

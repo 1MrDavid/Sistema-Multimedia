@@ -49,6 +49,7 @@ body {
   color: #ffffff; /* Texto blanco */
   font-size: 14px;
   outline: none;
+  box-sizing: border-box; /* Asegura que el padding no exceda el ancho */
 }
 
 .login-form input:focus {
@@ -71,6 +72,9 @@ body {
   transform: translateY(-50%);
   cursor: pointer;
   color: #cccccc; /* Color del icono */
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 /* Botón de inicio de sesión */
