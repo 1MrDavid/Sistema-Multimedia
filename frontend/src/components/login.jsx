@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { loginUser } from "../api/authService";
-import { Link } from "react-router-dom";
-import "./styles.css";
+import { Link, useNavigate } from "react-router-dom";
+// import "./styles.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +20,8 @@ const Login = () => {
       setMessage("Usuario logeado exitosamente.");
       setUsername("");
       setPassword("");
+
+      navigate("/Interface");
     } catch (error) {
       setMessage(error.detail || "Error al iniciar sesión.");
     }

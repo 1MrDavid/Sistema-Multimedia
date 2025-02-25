@@ -6,6 +6,7 @@ services:
     container_name: back-login
     volumes:
       - ./app:/app
+      - ./media:/app/media  # Monta la carpeta media como volumen
     ports:
       - "8000:8000"
     environment:
@@ -18,8 +19,8 @@ services:
     build: ./frontend
     container_name: front-vite
     volumes:
-      - ./frontend:/app
-      - /app/node_modules  # Evitar conflictos con node_modules en el host
+      - ./frontend:/app  # Monta la carpeta frontend local en /app del contenedor
+      - /app/node_modules  # Evita conflictos con node_modules en el host
     ports:
       - "5173:5173"
     environment:

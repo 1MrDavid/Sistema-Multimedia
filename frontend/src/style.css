@@ -1,0 +1,532 @@
+/* interfacestyles.css */
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #5a5a5a;
+}
+
+img {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 2%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  overflow-y: auto;
+  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+/* Estilos del Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 2%;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-izquierdo,
+.header-central,
+.header-derecho {
+  display: flex;
+  align-items: center;
+}
+
+.header-central {
+  flex: 1;
+  justify-content: center;
+}
+
+.menu-icon {
+  width: 22px;
+  margin-right: 25px;
+}
+
+.logo {
+  width: 120px;
+}
+
+.header-derecho img {
+  width: 25px;
+}
+
+.header-derecho .user-icon {
+  width: 35px;
+  border-radius: 50%;
+}
+
+.header-central .mic-icon {
+  width: 16px;
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 500px;
+  height: 40px;
+  border: 1px solid #ccc;
+  padding-left: 20px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.buscar-container img {
+  width: 20px;
+}
+
+.buscar-container {
+  height: 40px;
+  width: 60px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-left: -1px;
+  margin-right: 25px;
+  outline: none;
+  cursor: pointer;
+}
+
+.buscar-container,
+.mic-container,
+.subir-container,
+.notificacion-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-right: 25px;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -60px;
+  background-color: #ed5358;
+  color: #fff;
+  border-radius: 4px;
+  padding: 9px 6px;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.buscar-container:hover .tooltip,
+.mic-container:hover .tooltip,
+.subir-container:hover .tooltip,
+.notificacion-container:hover .tooltip {
+  opacity: 1;
+}
+
+.notificacion-container::after {
+  position: absolute;
+  content: '3';
+  background-color: #ed5358;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 50%;
+  top: 0;
+  border: 2px solid #fff;
+  right: -5px;
+}
+
+/* Estilos del Sidebar */
+.sidebar {
+  background-color: #fff;
+  flex-basis: 15%;
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  height: 88vh;
+  overflow-y: auto;
+  scrollbar-color: #09f transparent;
+  padding: 20px;
+}
+
+.sidebar:hover {
+  scrollbar-width: thin;
+}
+
+.sidebar:not(:hover) {
+  scrollbar-width: none;
+}
+
+.enlaces-nav {
+  align-items: center;
+  margin-bottom: 20px;
+  width: fit-content;
+  font-size: 14px;
+  padding-top: 40px;
+}
+
+.enlaces-nav a {
+  display: flex; /* Añadimos flexbox */
+  align-items: center; /* Alineamos verticalmente los elementos */
+  margin-bottom: 20px;
+  width: fit-content;
+  font-size: 14px;
+  text-decoration: none; /* Asegúrate de que no haya subrayado */
+  color: #5a5a5a; /* Asegúrate de que el color sea correcto */
+}
+
+.enlaces-nav a img {
+  width: 25px;
+  margin-right: 10px; /* Reducimos el margen entre el icono y el texto */
+  padding: 2px;
+}
+
+.enlaces-nav a p {
+  margin: 0; /* Aseguramos que no haya márgenes adicionales en el párrafo */
+}
+
+.enlaces-nav a:first-child {
+  color: red;
+}
+
+.enlaces-nav hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+  width: 11em;
+}
+
+.canales-suscritos a {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.canales-suscritos a img {
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.canales-suscritos h3 {
+  font-size: 12px;
+  color: #5a5a5a;
+  margin: 15px 0;
+}
+
+.small-sidebar {
+  flex-basis: 5%;
+}
+
+.small-sidebar h3 {
+  display: none;
+}
+
+.small-sidebar a p {
+  display: none;
+}
+
+.small-sidebar hr {
+  width: 2em;
+  margin-bottom: 20px;
+}
+
+/* Estilos de la Lista de Videos */
+.lista-videos {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  column-gap: 15px;
+  row-gap: 40px;
+  margin-top: 60px;
+  padding: 20px;
+  grid-auto-rows: auto;
+}
+
+.video {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 300px; /* Añadimos esta línea */
+  max-height: 270px;
+}
+.miniatura-container {
+  position: relative;
+}
+
+.miniatura {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.miniatura:hover {
+  transform: scale(1.05);
+}
+
+.miniatura-container div {
+  position: absolute;
+  bottom: 12px;
+  right: 6px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.video-perfil {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.video-perfil img {
+  width: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.video-info {
+  flex-grow: 1;
+  font-size: 13px;
+  color: #000;
+  font-weight: 600;
+}
+
+.video-info .title {
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.video-info .author {
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* Estilos de los enlaces de ayuda */
+.enlaces-ayuda {
+  height: 60px;
+  position: fixed;
+  top: 60px;
+  background-color: #fff;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: 100%;
+  margin-left: -9px;
+}
+
+.enlaces-ayuda a {
+  background-color: #eee;
+  padding: 6px 9px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.enlaces-ayuda a:first-child {
+  background-color: #000;
+  color: #fff;
+}
+
+.oculto {
+  display: none;
+}
+
+.main-large {
+  flex-basis: 93%;
+}
+
+.main-large .oculto {
+  display: inline-block;
+}
+
+/* Media queries para pantallas móviles */
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    flex-basis: 100%;
+  }
+
+  .enlaces-ayuda {
+    margin-left: 0;
+  }
+
+  .lista-videos .miniatura {
+    transform: none;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .buscar-container {
+    border: 0;
+    margin-right: 0;
+  }
+
+  .header-central {
+    justify-content: end;
+  }
+}
+
+/* Estilos para el contenedor de log-in y register */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 40px; /* Espacio para el ícono del ojo */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.message.success {
+  color: #28a745;
+}
+
+.message.error {
+  color: #dc3545;
+}
+
+.login-link,
+.register-link {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-link a,
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover,
+.register-link a:hover {
+  text-decoration: underline;
+}

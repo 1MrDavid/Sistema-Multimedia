@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchProtectedData } from "../api/authService";
+import Interface from "./interfaces";
 
 const ProtectedComponent = () => {
     const [data, setData] = useState(null);
@@ -24,12 +25,7 @@ const ProtectedComponent = () => {
 
     return (
         <div>
-            <h1>Datos Protegidos</h1>
-            {data ? (
-                <pre>{JSON.stringify(data, null, 2)}</pre>
-            ) : (
-                <p>Cargando...</p>
-            )}
+            <Interface />
         </div>
     );
 };

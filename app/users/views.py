@@ -8,6 +8,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+from django.http import JsonResponse
+# from .models import Video, Image
 
 logger = logging.getLogger(__name__)
 
@@ -73,3 +75,32 @@ class ProtectedView(APIView):
     def get(self, request):
         logger.info(f"Usuario autenticado en la vista: {request.user.username}")
         return Response({"message": "Esta es una vista protegida", "user": request.user.username})
+    
+# def video_list(request):
+#     # Obtener la lista de videos
+#     videos = Video.objects.all()
+#     video_data = [
+#         {
+#             'type': 'video',
+#             'title': video.title,
+#             'file_url': video.video_file.url,
+#             'thumbnail_url': video.thumbnail.url,
+#         }
+#         for video in videos
+#     ]
+
+#     # Obtener la lista de imágenes
+#     images = Image.objects.all()
+#     image_data = [
+#         {
+#             'type': 'image',
+#             'title': image.title,
+#             'file_url': image.image_file.url,
+#         }
+#         for image in images
+#     ]
+
+#     # Combinar las listas de videos e imágenes
+#     data = video_data + image_data
+
+#     return JsonResponse(data, safe=False)

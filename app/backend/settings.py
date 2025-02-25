@@ -12,9 +12,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Configuracion para archivos multimedia
+MEDIA_URL = '/media/'  # URL base para servir archivos multimedia
+MEDIA_ROOT = BASE_DIR / 'media'  # Ruta donde se almacenarán los archivos
 
 
 # Quick-start development settings - unsuitable for production
