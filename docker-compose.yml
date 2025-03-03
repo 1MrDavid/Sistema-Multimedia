@@ -5,8 +5,8 @@ services:
     build: ./app
     container_name: back-login
     volumes:
-      - ./app:/app
-      - ./media:/app/media  # Monta la carpeta media como volumen
+      - ./app:/app  # Mapea todo el proyecto Django
+      - ./app/media:/app/media  # Mapeo específico para media  # Monta la carpeta media como volumen
     ports:
       - "8000:8000"
     environment:

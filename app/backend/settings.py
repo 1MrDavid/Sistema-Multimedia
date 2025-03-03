@@ -18,9 +18,10 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Configuracion para archivos multimedia
-MEDIA_URL = '/media/'  # URL base para servir archivos multimedia
-MEDIA_ROOT = BASE_DIR / 'media'  # Ruta donde se almacenarán los archivos
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
-    'users', 
+    'users.apps.UsersConfig',
 ]
 
 REST_FRAMEWORK = {

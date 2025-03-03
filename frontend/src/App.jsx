@@ -4,10 +4,8 @@ import Login from "./components/login";
 import Register from "./components/register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./components/Dashboard";
-import Interface from "./components/interfaces";
-// import "./App.css";
+import PlayVideo from "./components/PlayVideo";
 import "./style.css";
-// import "./components/interfacestyles.css";
 
 function App() {
   return (
@@ -18,6 +16,10 @@ function App() {
         <Route
           path="/Interface"
           element={<ProtectedRoute element={Dashboard} />}
+        />
+        <Route
+          path="/video/:id"
+          element={<ProtectedRoute element={PlayVideo} />}
         />
       </Routes>
     </Router>

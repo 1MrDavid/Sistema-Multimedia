@@ -54,3 +54,23 @@ export const loginUser = async (userData) => {
         throw error.response.data;
     }
 };
+
+export const fetchVideos = async () => {
+  try {
+    const response = await api.get("/videos/");
+    return response.data;
+  } catch (error) {
+    if (error.response.status === 401) {
+      try {
+        const newAccessToken = await refreshToken();
+        document.cookie = `access_token=${newAccessToken}; path=/; Secure; HttpOnly`;
+        const response = await api.get("/videos/");
+        return response.data;
+      } catch (refreshError) {
+        window.location.href = "/login";
+        return;
+      }
+    }
+    throw error.response.data;
+  }
+};
