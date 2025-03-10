@@ -21,15 +21,15 @@ class Video(models.Model):
     upload_date = models.DateTimeField(auto_now_add=True)
     thumbnail = models.ImageField(
         upload_to='thumbnails/',
-        storage=CleanFileNameStorage()  # <-- Usar aquí
+        storage=CleanFileNameStorage()  
     )
     video_file = models.FileField(
         upload_to='videos/',
-        storage=CleanFileNameStorage()  # <-- Usar aquí
+        storage=CleanFileNameStorage() 
     )
     icon = models.ImageField(
         upload_to='icons/',
-        storage=CleanFileNameStorage()  # <-- Usar aquí
+        storage=CleanFileNameStorage()  
     )
     categories = models.CharField(max_length=100, blank=True)
     channel = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
