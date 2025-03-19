@@ -21,15 +21,15 @@ docker-compose build
 docker-compose start -d
 ```
 ---
-## ***Interfaces***
-1. ***Registro de usuario***
-   ![[Pasted image 20250224215531.png]]
-2. ***Inicio de sesión***
-   ![[Pasted image 20250224215325.png]]
-3. ***Interfaz principal***
-   ![[Pasted image 20250224215739.png]]
-4. ***Interfaz de video***
-   ![[Pasted image 20250309204652.png]]
+## _Interfaces_
+1. _**Registro de usuario**_  
+    ![Registro de usuario](./images/Pasted%2520image%252020250224215531.png)
+2. _**Inicio de sesión**_  
+    ![Inicio de sesión](./images/Pasted%2520image%252020250224215325.png)
+3. _**Interfaz principal**_  
+    ![Interfaz principal](./images/Pasted%2520image%252020250224215739.png)
+4. _**Interfaz de video**_  
+    ![Interfaz de video](./images/Pasted%2520image%252020250309204652.png)
 ---
 ## ***Flujo de peticiones para el backend***
 El backend en Django responde a peticiones http que se realizan a los rutas asignadas:
@@ -186,7 +186,7 @@ class Video(models.Model):
 ---
 ## ***Flujo para creación de usuario***
 La creación de usuario se realiza enviando una petición a Django con los datos con los que se van a crear el usuario
-![[Pasted image 20250309210835.png]]
+![Creación de usuario](./images/Pasted%2520image%252020250309210835.png)
 - Tipo de petición: POST
 - Datos de entrada: { username, password }
 ```
@@ -223,7 +223,7 @@ class CreateUserView(generics.CreateAPIView):
 ---
 ## ***Flujo de inicio de sesión***
 El inicio de sesión se realiza enviando una petición a Django con los datos de un usuario existente. Una vez Django valida que el usuario existe procede a responder con los tokens que se van a usar para acceder al contenido y un token de refresco que genera un nuevo token de acceso.
-![[Pasted image 20250309213713.png]]
+![Inicio de sesión](./images/Pasted%2520image%252020250309213713.png)
 - Tipo de petición: POST
 - Datos de entrada: { username, password }
 ```
@@ -303,7 +303,7 @@ SIMPLE_JWT = {
 }
 ```
 Después de los 15 minutos el token deja de ser valido para el usuario. Allí es donde se usa el token de refresco, pues con este se genera un nuevo token de acceso sin necesidad de volver a iniciar sesión. Cabe destacar que, cada vez que se inicia sesión se genera nuevos tokens de acceso y refresco.
-![[Pasted image 20250309231715.png]]
+![Refresco de tokens](./images/Pasted%2520image%252020250309231715.png)
 - Tipo de petición: POST
 - Datos de entrada: {refresh token}
 ```
@@ -360,7 +360,7 @@ class CustomTokenRefreshView(TokenRefreshView):
 ---
 ## ***Validación de usuario para acceder a la interfaz***
 Para acceder tanto a la interfaz principal como a alguno de los videos se requiere validar el token de acceso para permitir el ingreso.
-![[Pasted image 20250309232845.png]]
+![Validación de usuario](./images/Pasted%2520image%252020250309232845.png)
 Para ello, en las rutas en React se ejecuta el componente que valida token antes de proseguir
 ```JAVASCRIPT
 function App() {
