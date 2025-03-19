@@ -22,14 +22,14 @@ docker-compose start -d
 ```
 ---
 ## _Interfaces_
-1. _**Registro de usuario**_  
-    ![Registro de usuario](./images/Pasted%2520image%252020250224215531.png)
-2. _**Inicio de sesión**_  
-    ![Inicio de sesión](./images/Pasted%2520image%252020250224215325.png)
-3. _**Interfaz principal**_  
-    ![Interfaz principal](./images/Pasted%2520image%252020250224215739.png)
-4. _**Interfaz de video**_  
-    ![Interfaz de video](./images/Pasted%2520image%252020250309204652.png)
+1. ***Registro de usuario***
+   ![Registro de usuario](./images/Pasted%20image%2020250224215531.png)
+2. ***Inicio de sesión***
+   ![Inicio de sesión](./images/Pasted%20image%2020250224215325.png)
+3. ***Interfaz principal***
+   ![Interfaz principal](./images/Pasted%20image%2020250224215739.png)
+4. ***Interfaz de video***
+   ![Interfaz de video](./images/Pasted%20image%2020250309204652.png)
 ---
 ## ***Flujo de peticiones para el backend***
 El backend en Django responde a peticiones http que se realizan a los rutas asignadas:
